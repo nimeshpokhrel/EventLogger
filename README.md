@@ -7,6 +7,6 @@ Event Logger is a open-source python based discord bot that logs specific event 
 ## Installation
 Installing and setting this bot up is fairly simple and easy. After you have all the requirements follow the following procedure:
 
-> Install required dependencies using pip install requirements.txt
-> Add your bot token under bot.py and mbdF credentials under mdbF.py
-> Run the bot using python3 bot.py
+- Install required dependencies using pip install requirements.txt
+- Add your bot token under bot.py and mbdF credentials under mdbF.py
+- Run the bot using python3 bot.py
