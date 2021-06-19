@@ -1,0 +1,10 @@
+discord.py
+pymongo
+pip
+dnspython
+aiohtttp
+websockets
+requests
+more_itertools
+pynacl
+asyncio
