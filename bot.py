@@ -21,7 +21,7 @@ svnum = str(len(client.guilds))
 
 @client.event
 async def on_ready():
-    await client.change_presence(status=discord.Status.online, activity=discord.Activity(type=discord.ActivityType.playing, name=f".help | TheProfessional | SVs: {svnum}"))
+    await client.change_presence(status=discord.Status.online, activity=discord.Activity(type=discord.ActivityType.playing, name=f".help | EventLogger | SVs: {svnum}"))
     print('BOT IS ONLINE')
     print("UserName: ", client.user.name)
     print("UserID: ", client.user.id)
@@ -31,7 +31,7 @@ async def on_ready():
 @tasks.loop(seconds=60)
 async def countSV():
     svnum = len(client.guilds)
-    await client.change_presence(status=discord.Status.online, activity=discord.Activity(type=discord.ActivityType.playing, name=f".help | TheProfessional | SVs: {svnum}"))
+    await client.change_presence(status=discord.Status.online, activity=discord.Activity(type=discord.ActivityType.playing, name=f".help | EventLogger | SVs: {svnum}"))
 # BOT STATUS AREA END
 
 # COGS AREA START
