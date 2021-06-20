@@ -20,3 +20,7 @@ Installing and setting this bot up is fairly simple and easy. After you have all
 - Install required dependencies using pip install requirements.txt
 - Add your bot token under bot.py and mbdF credentials under mdbF.py
 - Run the bot using python3 bot.py
+
+## Contributor
+- unl0cky
+- Death GOD 7
