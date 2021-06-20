@@ -13,6 +13,7 @@ db = cluster[m_DB_name]
 collection = db[m_DB_collection]
 prefixObject = config("prefixObjectID")
 logsChannelObject = config("logsObjectID")
+tempRoleHolder = config("tempRoleHolder")
 
 
 def setOID(type: str):
@@ -23,6 +24,9 @@ def setOID(type: str):
         return obj
     elif(type == "logschannel"):
         obj = ObjectId(f"{logsChannelObject}")
+        return obj
+    elif(type == "temproleholder"):
+        obj = ObjectId(f"{tempRoleHolder}")
         return obj
 
 
