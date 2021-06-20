@@ -1,25 +1,28 @@
 import pymongo
 from pymongo import MongoClient
 from bson import ObjectId
+from decouple import config
 
 #mainDB (AWS)
-m_DB_link = ""
-m_DB_name = ""
-m_DB_collection = ""
+m_DB_link = config("DB")
+m_DB_name = config("DB_NAME")
+m_DB_collection = config("DB_COLLECTION")
 
 cluster = MongoClient(m_DB_link)
 db = cluster[m_DB_name]
 collection = db[m_DB_collection]
+prefixObject = config("prefixObjectID")
+logsChannelObject = config("logsObjectID")
 
 
 def setOID(type: str):
     if(type == None):
         return None
     if(type == "prefix"):
-        obj = ObjectId("")
+        obj = ObjectId(f"{prefixObject}")
         return obj
     elif(type == "logschannel"):
-        obj = ObjectId("")
+        obj = ObjectId(f"{logsChannelObject}")
         return obj
 
 

@@ -1,6 +1,7 @@
+from decouple import config
+from discord.ext import commands, tasks
 import discord
 import os
-from discord.ext import commands, tasks
 import mdbF
 
 
@@ -40,4 +41,4 @@ for filename in os.listdir('cogs'):
         client.load_extension(f'cogs.{filename[:-3]}')
 # COGS AREA END
 
-client.run('')
+client.run(config("TOKEN"))
