@@ -8,7 +8,11 @@ import mdbF
 def get_prefix(client, message):
     data = mdbF.load_data("prefix")
     guildID = str(message.guild.id)
-    serverPrefix = data[guildID]
+    if guildID in data:
+        serverPrefix = data[guildID]
+    else:
+        serverPrefix = "."
+        mdbF.save_data(guildID,serverPrefix,"prefix")
     return serverPrefix
 
 

@@ -21,15 +21,19 @@ class events(commands.Cog):
     async def logChannel(self, gID: int):
         data = mdbF.load_data("logschannel")
         guildID = str(gID)
-        incID = data[guildID]
-        return incID
+        if guildID in data:
+            logID = data[guildID]
+        else: 
+            logID = None
+        return logID
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
         incID = await self.logChannel(member.guild.id)
-        inc = discord.utils.get(self.client.get_all_channels(), id=incID)
-        if(inc != None):
-            await inc.send(f"Hey {member.mention}, welcome to **{member.guild.name}**!")
+        if (incID != None):
+            inc = discord.utils.get(self.client.get_all_channels(), id=incID)
+            if(inc != None):
+                await inc.send(f"Hey {member.mention}, welcome to **{member.guild.name}**!")
         defrolID = await self.getdefrole(member.guild.id)
         defrol = discord.utils.get(member.guild.roles, id=defrolID)
         if(defrol != None):
@@ -38,9 +42,29 @@ class events(commands.Cog):
     @commands.Cog.listener()
     async def on_member_remove(self, member):
         outcID = await self.logChannel(member.guild.id)
-        outc = discord.utils.get(self.client.get_all_channels(), id=outcID)
-        if(outc != None):
-            await outc.send(f"**{member}**, just left the server!")
+        if (outcID != None):
+            outc = discord.utils.get(self.client.get_all_channels(), id=outcID)
+            if(outc != None):
+                await outc.send(f"**{member}**, just left the server!")
+        roledata = mdbF.load_data("temproleholder")
+        guildID = str(member.guild.id)
+        if guildID in roledata:
+            memberID = member.id
+            allRoles = member.roles
+            print(allRoles)
+            for x in allRoles:
+                if x.id == int(guildID):
+                    allRoles.remove(x)        
+                if roledata[guildID]["blacklist-roles"] != None:
+                    if str(x.id) in roledata[guildID]["blacklist-roles"]:
+                        allRoles.remove(x)
+
+            print(allRoles)
+            allRoles.reverse()
+            print(allRoles)
+            if allRoles != None:
+                for x in allRoles:
+                    mdbF.save_data("{}.{}.{}".format(guildID,memberID,x.id),x.name,"temproleholder")
 
     @commands.Cog.listener()
     async def on_guild_channel_delete(self, channel):
