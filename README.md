@@ -1,8 +1,8 @@
 # EventLogger
 <p align="center">
-
-[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/0-percent-optimized.svg)](https://forthebadge.com)
-
+<img src="https://forthebadge.com/images/badges/made-with-python.svg">
+<img src="https://forthebadge.com/images/badges/open-source.svg">
+<img src="https://forthebadge.com/images/badges/0-percent-optimized.svg">
 </p>
 
 ## About this project
