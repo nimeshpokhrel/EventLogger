@@ -1,10 +1,10 @@
 import discord
 import functionsBOT
-from discord.ext import commands
 import random
 import mdbF
 import datetime
 from datetime import timedelta
+from discord.ext import commands
 
 
 class events(commands.Cog):
@@ -12,18 +12,12 @@ class events(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    async def getPrefix(self, gID: int):
-        data = mdbF.load_data("prefix")
-        guildID = str(gID)
-        serverPrefix = data[guildID]
-        return serverPrefix
-
     async def logChannel(self, gID: int):
         data = mdbF.load_data("logschannel")
         guildID = str(gID)
         if guildID in data:
             logID = data[guildID]
-        else: 
+        else:
             logID = None
         return logID
 
@@ -54,7 +48,7 @@ class events(commands.Cog):
             print(allRoles)
             for x in allRoles:
                 if x.id == int(guildID):
-                    allRoles.remove(x)        
+                    allRoles.remove(x)
                 if roledata[guildID]["blacklist-roles"] != None:
                     if str(x.id) in roledata[guildID]["blacklist-roles"]:
                         allRoles.remove(x)
@@ -64,7 +58,8 @@ class events(commands.Cog):
             print(allRoles)
             if allRoles != None:
                 for x in allRoles:
-                    mdbF.save_data("{}.{}.{}".format(guildID,memberID,x.id),x.name,"temproleholder")
+                    mdbF.save_data("{}.{}.{}".format(
+                        guildID, memberID, x.id), x.name, "temproleholder")
 
     @commands.Cog.listener()
     async def on_guild_channel_delete(self, channel):
