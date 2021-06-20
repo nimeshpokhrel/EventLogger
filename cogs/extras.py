@@ -28,7 +28,7 @@ class extras(commands.Cog):
                     self.client.get_all_channels(), id=logcID)
                 cnum = random.randint(1, 9999)
                 embed = discord.Embed(timestamp=functionsBOT.timedate(
-                ), description=f"**Before:** {before.content}\n**After:** {after.content}\n**Message ID:** {before.id}\n**Channel:** {before.channel.mention} `{before.channel.id}`\n**User:** {before.author.mention} `{before.author.id}`", colour=discord.Colour(15116805))
+                ), description=f"**Before:** {before.content}\n**After:** {after.content}\n**Message ID:** `{before.id}`\n**Channel:** {before.channel.mention} `{before.channel.id}`\n**User:** {before.author.mention} `{before.author.id}`", colour=discord.Colour(15116805))
                 embed.set_author(name=f"message edited | case {cnum}")
                 embed.set_footer(text="Auto-Generated")
                 await logc.send(embed=embed)
@@ -47,7 +47,7 @@ class extras(commands.Cog):
                     self.client.get_all_channels(), id=logcID)
                 cnum = random.randint(1, 9999)
                 embed = discord.Embed(timestamp=functionsBOT.timedate(
-                ), description=f"**Message:** {message.content}\n**Message ID:** {message.id}\n**Channel:** {message.channel.mention} `{message.channel.id}`\n**User:** {message.author.mention} `{message.author.id}`", colour=discord.Colour(16472409))
+                ), description=f"**Message:** {message.content}\n**Message ID:** `{message.id}`\n**Channel:** {message.channel.mention} `{message.channel.id}`\n**User:** {message.author.mention} `{message.author.id}`", colour=discord.Colour(16472409))
                 embed.set_author(name=f"message deleted | case {cnum}")
                 embed.set_footer(text="Auto-Generated")
                 await logc.send(embed=embed)

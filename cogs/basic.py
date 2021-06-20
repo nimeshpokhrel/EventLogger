@@ -1,9 +1,9 @@
-from bot import getGuildPrefix
 import discord
 import functionsBOT
 from discord.ext import commands, tasks
 from discord.ext.commands.cooldowns import BucketType
 from discord.utils import get
+from functionsBOT import getGuildPrefix
 
 
 class Basic(commands.Cog):
