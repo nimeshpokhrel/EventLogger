@@ -12,7 +12,7 @@ Event Logger is a open-source python based discord bot that logs specific event 
 These are the requiremnts you will need to run your bot.
 
 - Python requirements are under requirements.txt
-- A mongoDB database with 2 objects
+- A mongoDB database with 3 objects
 
 ## Installation
 Installing and setting this bot up is fairly simple and easy. After you have all the requirements follow the following procedure:
